@@ -35,7 +35,43 @@ This is a web application designed to help users improve their English oral spea
 git clone https://github.com/your-username/english-speaking-training.git
 ```
 
-2. Navigate to the main project folder:
+2. Install the dependencies for the frontend:
 ```bash
-cd english-speaking-training
+cd english-speaking-training/client
+npm install
 ```
+
+3. Install the dependencies for the backend:
+```bash
+cd ../server
+npm install
+```
+
+4. Create a .env file in the server folder with the following environment variables:
+```bash
+OPENAI_API_KEY=<your_openai_api_key>
+MONGODB_URI=<your_mongodb_connection_string>
+JWT_SECRET=<your_jwt_secret_key>
+```
+Replace <your_openai_api_key>, <your_mongodb_connection_string>, and <your_jwt_secret_key> with the appropriate values.
+
+### Running the Application
+1. Start the frontend development server:
+```bash
+cd english-speaking-training/client
+npm start
+```
+
+2. Start the backend server:
+```bash
+cd ../server
+node src/app.js
+```
+
+3. Open your browser and navigate to http://localhost:3000. The application should be up and running.
+
+## Contributing
+Please read the CONTRIBUTING.md file for details on how to contribute to this project.
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
