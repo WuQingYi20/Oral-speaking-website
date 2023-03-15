@@ -1,0 +1,49 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: BuildAndTest
+    jobs:
+      - job: Frontend
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '14.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              cd client
+              npm ci
+              npm test
+              npm run build
+            displayName: 'Install dependencies, run tests, and build frontend'
+
+      - job: Backend
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '14.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              cd server
+              npm ci
+              npm test
+            displayName: 'Install dependencies and run tests'
+
+  - stage: Deploy
+    dependsOn: BuildAndTest
+    condition: succeeded()
+    jobs:
+      - deployment: DeployToAzure
+        displayName: 'Deploy to Azure'
+        environment: 'Production'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: echo 'Deploy to Azure'
+                  displayName: 'Deploy'
