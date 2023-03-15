@@ -1,0 +1,18 @@
+# Node modules
+node_modules
+
+# React build output
+client/build
+
+# dotenv environment variables file
+server/.env
+
+# Log files
+*.log
+
+# IDE and Editor files
+.vscode
+*.suo
+*.ntvs_analysis.json
+*.njsproj
+*.idea
