@@ -33,3 +33,9 @@ This is a web application designed to help users improve their English oral spea
 
 ```bash
 git clone https://github.com/your-username/english-speaking-training.git
+```
+
+2. Navigate to the main project folder:
+```bash
+cd english-speaking-training
+```
