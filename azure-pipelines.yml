@@ -31,7 +31,7 @@ stages:
           - script: |
               cd server
               npm install
-              npm test -- --passWithNoTests
+              npm test
             displayName: 'Install dependencies and run tests'
 
   - stage: Deploy
